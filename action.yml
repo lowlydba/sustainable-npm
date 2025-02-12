@@ -60,7 +60,7 @@ runs:
         npm config set fund ${{ inputs.fund }}
         npm config set progress ${{ inputs.progress }}
         npm config set update-notifier ${{ inputs['update-notifier'] }}
-        npm config set prefer-offline ${{ inputs.['prefer-offline'] }}
+        npm config set prefer-offline ${{ inputs['prefer-offline'] }}
         npm config set loglevel ${{ inputs.loglevel }}
 
     - name: Confirm npm configs
