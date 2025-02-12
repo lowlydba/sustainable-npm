@@ -1,0 +1,28 @@
+{
+    "name": "benchmark-large-install",
+    "version": "1.0.0",
+    "description": "Benchmarking large npm installs",
+    "private": true,
+    "dependencies": {
+      "lodash": "latest",
+      "react": "latest",
+      "express": "latest",
+      "axios": "latest",
+      "moment": "latest",
+      "chalk": "latest",
+      "async": "latest",
+      "commander": "latest",
+      "uuid": "latest",
+      "bluebird": "latest",
+      "mongoose": "latest",
+      "body-parser": "latest",
+      "dotenv": "latest",
+      "cors": "latest",
+      "winston": "latest",
+      "jest": "latest",
+      "nodemon": "latest",
+      "socket.io": "latest",
+      "bcrypt": "latest",
+      "jsonwebtoken": "latest"
+    }
+  }

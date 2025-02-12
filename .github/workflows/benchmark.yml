@@ -1,0 +1,41 @@
+name: Benchmark
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+
+      - name: Install hyperfine
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y hyperfine
+
+      - name: Cache dependencies
+        run: |
+          cd test/medium-package
+          npm install
+
+      - name: Run baseline benchmarks
+        run: |
+          echo "Benchmarking inline npm config commands vs. composite action script"
+          cd test/medium-package
+          hyperfine --warmup 2 --runs 10 "npm install"
+
+      - name: Run Sustainable npm action
+        uses: ./
+
+      - name: Run action benchmarks
+        run: |
+          echo "Benchmarking inline npm config commands vs. composite action script"
+          cd test/medium-package
+          hyperfine --warmup 2 --runs 10 "npm install"
