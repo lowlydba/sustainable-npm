@@ -10,7 +10,7 @@ Sustainable npm is a lightweight GitHub Action that globally sets eco-friendly n
 
 ## Philosophy
 
-In today's world, every millisecond of compute time counts—not only for performance but also for sustainability. Sustainable npm is designed with the environment in mind. By streamlining npm’s behavior, we aim to reduce unnecessary energy usage and carbon emissions, all while making your development pipeline leaner and faster.
+Every millisecond of compute time counts—not only for performance but also for sustainability. Sustainable npm is designed with the environment in mind. By streamlining npm’s behavior, we aim to reduce unnecessary energy usage and carbon emissions, all while making your development pipeline leaner and faster.
 
 ## Usage
 
