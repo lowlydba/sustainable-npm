@@ -1,6 +1,12 @@
 # Sustainable npm
 
-Sustainable npm is a lightweight GitHub Action that globally sets eco-friendly npm configurations to optimize your workflows. By disabling certain npm features (like audit and update notifications), this action helps speed up installations and reduce the carbon footprint of your CI processes. It’s dependency-free, extremely fast (no Docker image downloads), and pairs seamlessly with [`actions/setup-node`](https://github.com/actions/setup-node).
+Sustainable npm is a lightweight GitHub Action that globally sets eco-friendly npm configurations to optimize your workflows. By disabling certain npm features (like audit and update notifications), this action helps speed up installations and reduce the carbon footprint of your CI processes. 
+
+* 🔒 dependency-free
+* ⚛️ small size
+* 💰 saves time & money
+* 🌎 reduces carbon emissions 
+* :octocat: pairs seamlessly with [`actions/setup-node`](https://github.com/actions/setup-node).
 
 ## Philosophy
 
