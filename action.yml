@@ -69,6 +69,6 @@ runs:
       shell: bash
       run: |
         # Confirm npm configs
-        echo "::group::current npm config"
+        echo "::group::⚙️ current npm config"
         npm config list
         echo "::endgroup::"
