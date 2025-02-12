@@ -65,10 +65,10 @@ runs:
         npm config set prefer-offline ${{ inputs['prefer-offline'] }}
         npm config set loglevel ${{ inputs.loglevel }}
 
-    - name: Confirm npm configs
+    - name: Print npm configs
       shell: bash
       run: |
-        # Confirm npm configs
-        echo "::group::⚙️ current npm config"
+        # Print npm configs
+        echo "::group::⚙️ npm config output"
         npm config list
         echo "::endgroup::"
