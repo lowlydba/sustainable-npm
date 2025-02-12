@@ -16,11 +16,6 @@ Thank you for your interest in contributing to Sustainable NPM! This project aim
 3. Open a **pull request (PR)** with a clear description of your changes.
 4. Follow the [Conventional Commits](https://www.conventionalcommits.org/) format for commit messages.
 
-### ✅ Code Style
-- Follow **ESLint** rules (`npm run lint` to check).
-- Keep PRs focused and atomic.
-- Use descriptive commit messages.
-
 ### 📢 Issues & Discussions
 - **Report bugs** via [GitHub Issues](https://github.com/lowlydba/sustainable-npm/issues).
 - **Propose features** through an issue before starting work.
