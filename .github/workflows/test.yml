@@ -18,8 +18,8 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - name: Run Config npm Echo Action
-        uses: ./.github/actions/config-npm-echo
+      - name: Run action
+        uses: ./
         with:
           audit: 'false'
           fund: 'false'
