@@ -48,6 +48,7 @@ runs:
     - name: Check for npm CLI
       shell: bash
       run: |
+        # Check for npm CLI
         if ! command -v npm &> /dev/null; then
           echo "Error: npm CLI not found. Did you forget to run `actions/setup-node` first?"
           exit 1
@@ -56,6 +57,7 @@ runs:
     - name: Set npm configs
       shell: bash
       run: |
+        # Set npm configs
         npm config set audit ${{ inputs.audit }}
         npm config set fund ${{ inputs.fund }}
         npm config set progress ${{ inputs.progress }}
@@ -65,4 +67,8 @@ runs:
 
     - name: Confirm npm configs
       shell: bash
-      run: npm config list
+      run: |
+        # Confirm npm configs
+        echo "::group::current npm config"
+        npm config list
+        echo "::endgroup::"
