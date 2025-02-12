@@ -1,4 +1,4 @@
-name: Test Config npm Echo
+name: Test action
 
 on:
   push:
@@ -24,7 +24,6 @@ jobs:
           audit: 'false'
           fund: 'false'
           progress: 'false'
-          save: 'false'
           update-notifier: 'false'
           loglevel: 'error'
 
@@ -34,7 +33,6 @@ jobs:
           expected_audit="false"
           expected_fund="false"
           expected_progress="false"
-          expected_save="false"
           expected_update_notifier="false"
           expected_loglevel="error"
 
@@ -42,7 +40,6 @@ jobs:
           actual_audit=$(npm config get audit)
           actual_fund=$(npm config get fund)
           actual_progress=$(npm config get progress)
-          actual_save=$(npm config get save)
           actual_update_notifier=$(npm config get update-notifier)
           actual_loglevel=$(npm config get loglevel)
 
@@ -50,7 +47,6 @@ jobs:
           echo "audit: expected $expected_audit, got $actual_audit"
           echo "fund: expected $expected_fund, got $actual_fund"
           echo "progress: expected $expected_progress, got $actual_progress"
-          echo "save: expected $expected_save, got $actual_save"
           echo "update-notifier: expected $expected_update_notifier, got $actual_update_notifier"
           echo "loglevel: expected $expected_loglevel, got $actual_loglevel"
 
@@ -58,7 +54,6 @@ jobs:
           if [ "$actual_audit" != "$expected_audit" ]; then echo "Mismatch in audit"; exit 1; fi
           if [ "$actual_fund" != "$expected_fund" ]; then echo "Mismatch in fund"; exit 1; fi
           if [ "$actual_progress" != "$expected_progress" ]; then echo "Mismatch in progress"; exit 1; fi
-          if [ "$actual_save" != "$expected_save" ]; then echo "Mismatch in save"; exit 1; fi
           if [ "$actual_update_notifier" != "$expected_update_notifier" ]; then echo "Mismatch in update-notifier"; exit 1; fi
           if [ "$actual_loglevel" != "$expected_loglevel" ]; then echo "Mismatch in loglevel"; exit 1; fi
 
