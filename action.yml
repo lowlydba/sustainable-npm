@@ -1,0 +1,61 @@
+name: 'Sustainable npm'
+description: 'Globally sets npm configurations to optimize speed and reduce CO₂ emissions.'
+author: 'John McCall'
+branding:
+  icon: 'package'
+  color: 'green'
+
+inputs:
+  audit:
+    description: >-
+      Controls whether npm performs a security audit after installing packages.
+      When set to false, npm will skip running the audit (default: false).
+    required: false
+    default: 'false'
+  fund:
+    description: >-
+      Enables or disables funding messages from npm. When disabled, npm will not display funding prompts (default: false).
+    required: false
+    default: 'false'
+  progress:
+    description: >-
+      Determines if a progress bar is displayed during npm operations.
+      Disabling the progress bar can help reduce log noise in CI environments (default: false).
+    required: false
+    default: 'false'
+  update-notifier:
+    description: >-
+      Configures whether npm checks for updates to itself after executing commands.
+      Disabling this can reduce unnecessary network requests (default: false).
+    required: false
+    default: 'false'
+  loglevel:
+    description: >-
+      Sets the logging level for npm. Valid values include: silent, error, warn, http, info, verbose, and silly.
+      For streamlined output, the default is set to 'error' (default: error).
+    required: false
+    default: 'error'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Check for npm CLI
+      shell: bash
+      run: |
+        if ! command -v npm &> /dev/null; then
+          echo "Error: npm CLI not found. Did you forget to run `actions/setup-node` first?"
+          exit 1
+        fi
+
+    - name: Set npm configs
+      shell: bash
+      run: |
+        npm config set audit ${{ inputs.audit }}
+        npm config set fund ${{ inputs.fund }}
+        npm config set progress ${{ inputs.progress }}
+        npm config set update-notifier ${{ inputs['update-notifier'] }}
+        npm config set loglevel ${{ inputs.loglevel }}
+
+    - name: Confirm npm configs
+      shell: bash
+      run: npm config list
