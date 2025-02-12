@@ -51,7 +51,7 @@ If you need to override the defaults, you can provide your own values. For examp
 | `progress`        | Determines if a progress bar is displayed during npm operations. Disabling it minimizes logging overhead.                                                    | `'true'` or `'false'`                                 | `'false'` |
 | `save`            | Controls whether npm automatically updates `package.json` with installed dependencies. Disabling this can prevent unintended file changes.                | `'true'` or `'false'`                                 | `'false'` |
 | `update-notifier` | Configures whether npm checks for updates to itself after executing commands. Disabling this reduces unnecessary network requests and delays.             | `'true'` or `'false'`                                 | `'false'` |
-| `prefer-offline` | Configures whether npm checks for staleness in cached data. Missing data will still be fetched online. Disabling this can reduce unnecessary network requests | `'true'` or `'false'`                                 | `'true'` |
+| `prefer-offline` | Configures whether npm checks for staleness in cached data. Missing data will still be fetched online. Disabling this can reduce unnecessary network requests. | `'true'` or `'false'`                                 | `'true'` |
 | `loglevel`        | Sets the logging level for npm. Options include: `silent`, `error`, `warn`, `http`, `info`, `verbose`, and `silly`.                                           | `silent`, `error`, `warn`, `http`, `info`, `verbose`, `silly` | `'error'` |
 
 ## Performance Benchmarks
