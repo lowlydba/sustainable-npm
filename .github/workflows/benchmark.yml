@@ -7,7 +7,10 @@ on:
 
 jobs:
   benchmark:
-    runs-on: ubuntu-latest
+    runs-on: [ubuntu-latest]
+    strategy:
+      matrix:
+        package-size: ['medium']
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -22,13 +25,13 @@ jobs:
 
       - name: Cache dependencies
         run: |
-          cd test/medium-package
+          cd test/${{ matrix.package-size }}-package
           npm install
 
       - name: Run baseline benchmarks
         run: |
-          echo "Benchmarking inline npm config commands vs. composite action script"
-          cd test/medium-package
+          echo "Benchmarking baseline npm config commands"
+          cd test/${{ matrix.package-size }}-package
           hyperfine --warmup 2 --runs 10 "npm install"
 
       - name: Run Sustainable npm action
@@ -36,6 +39,6 @@ jobs:
 
       - name: Run action benchmarks
         run: |
-          echo "Benchmarking inline npm config commands vs. composite action script"
-          cd test/medium-package
+          echo "Benchmarking Sustainable npm config commands"
+          cd test/${{ matrix.package-size }}-package
           hyperfine --warmup 2 --runs 10 "npm install"

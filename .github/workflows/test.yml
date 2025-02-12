@@ -25,6 +25,7 @@ jobs:
           fund: 'false'
           progress: 'false'
           update-notifier: 'false'
+          prefer-offline: 'true'
           loglevel: 'error'
 
       - name: Assert npm config settings
@@ -34,6 +35,7 @@ jobs:
           expected_fund="false"
           expected_progress="false"
           expected_update_notifier="false"
+          expected_prefer_offline="true"
           expected_loglevel="error"
 
           # Retrieve current npm config values
@@ -41,6 +43,7 @@ jobs:
           actual_fund=$(npm config get fund)
           actual_progress=$(npm config get progress)
           actual_update_notifier=$(npm config get update-notifier)
+          actual_prefer_offline=$(npm config get prefer-offline)
           actual_loglevel=$(npm config get loglevel)
 
           echo "Validating npm configurations:"
@@ -48,6 +51,7 @@ jobs:
           echo "fund: expected $expected_fund, got $actual_fund"
           echo "progress: expected $expected_progress, got $actual_progress"
           echo "update-notifier: expected $expected_update_notifier, got $actual_update_notifier"
+          echo "prefer-offline: expected $expected_prefer_offline, got $actual_prefer_offline"
           echo "loglevel: expected $expected_loglevel, got $actual_loglevel"
 
           # Compare actual vs expected values
@@ -55,6 +59,7 @@ jobs:
           if [ "$actual_fund" != "$expected_fund" ]; then echo "Mismatch in fund"; exit 1; fi
           if [ "$actual_progress" != "$expected_progress" ]; then echo "Mismatch in progress"; exit 1; fi
           if [ "$actual_update_notifier" != "$expected_update_notifier" ]; then echo "Mismatch in update-notifier"; exit 1; fi
+          if [ "$actual_prefer_offline" != "$expected_prefer_offline" ]; then echo "Mismatch in prefer_offline"; exit 1; fi
           if [ "$actual_loglevel" != "$expected_loglevel" ]; then echo "Mismatch in loglevel"; exit 1; fi
 
           echo "All npm configurations match the expected values."

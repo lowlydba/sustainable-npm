@@ -29,6 +29,12 @@ inputs:
       Disabling this can reduce unnecessary network requests (default: false).
     required: false
     default: 'false'
+  prefer-offline:
+    description: >-
+      Configures whether npm checks for staleness in cached data. Missing data will still be fetched online.
+      Disabling this can reduce unnecessary network requests (default: false).
+    required: false
+    default: 'true'
   loglevel:
     description: >-
       Sets the logging level for npm. Valid values include: silent, error, warn, http, info, verbose, and silly.
@@ -54,6 +60,7 @@ runs:
         npm config set fund ${{ inputs.fund }}
         npm config set progress ${{ inputs.progress }}
         npm config set update-notifier ${{ inputs['update-notifier'] }}
+        npm config set prefer-offline ${{ inputs.['prefer-offline'] }}
         npm config set loglevel ${{ inputs.loglevel }}
 
     - name: Confirm npm configs
