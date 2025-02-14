@@ -4,13 +4,14 @@ name: Lint
 on:
   pull_request:
 
+permissions:
+  contents: read
+  packages: read
+  statuses: write # To report GitHub Actions status checks
+
 jobs:
   lint:
     runs-on: [ubuntu-latest]
-    permissions:
-      contents: read
-      packages: read
-      statuses: write # To report GitHub Actions status checks
     steps:
       - uses: actions/checkout@v4
         with:
@@ -21,3 +22,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_MARKDOWN_PRETTIER: false
           VALIDATE_YAML_PRETTIER: false
+          VALIDATE_JSON_PRETTIER: false
