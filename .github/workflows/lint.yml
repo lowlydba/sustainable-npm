@@ -7,6 +7,10 @@ on:
 jobs:
   lint:
     runs-on: [ubuntu-latest]
+    permissions:
+      contents: read
+      packages: read
+      statuses: write # To report GitHub Actions status checks
     steps:
       - uses: actions/checkout@v4
         with:
