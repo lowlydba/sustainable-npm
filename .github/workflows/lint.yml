@@ -9,7 +9,7 @@ permissions:
   statuses: write # To report GitHub Actions status checks
 
 jobs:
-  lint:
+  super-linter:
     runs-on: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v4
