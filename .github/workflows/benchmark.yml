@@ -5,6 +5,8 @@ on:
   pull_request:
   push:
 
+permissions: read-all
+
 jobs:
   benchmark:
     runs-on: ${{ matrix.os }}
