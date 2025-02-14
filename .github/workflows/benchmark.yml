@@ -7,9 +7,10 @@ on:
 
 jobs:
   benchmark:
-    runs-on: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
         package-size: ['medium']
     steps:
       - name: Checkout repository
@@ -32,13 +33,4 @@ jobs:
         run: |
           echo "Benchmarking baseline npm config commands"
           cd test/${{ matrix.package-size }}-package
-          hyperfine --warmup 2 --runs 10 "npm install"
-
-      - name: Run Sustainable npm action
-        uses: ./
-
-      - name: Run action benchmarks
-        run: |
-          echo "Benchmarking Sustainable npm config commands"
-          cd test/${{ matrix.package-size }}-package
-          hyperfine --warmup 2 --runs 10 "npm install"
+          hyperfine --warmup 2 --runs 10 "npm install" "npm install --audit=false --fund=false --loglevel=error --prefer-offline=true --update-notifier=false --progress=false"
