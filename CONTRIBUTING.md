@@ -1,6 +1,6 @@
 # Contributing to Sustainable npm
 
-Thank you for your interest in contributing to Sustainable NPM! This project aims to make NPM usage more efficient and eco-friendly by optimizing configurations globally via a GitHub Action.
+Thank you for your interest in contributing to Sustainable npm! This project aims to make npm usage more efficient and eco-friendly by optimizing configurations globally via a GitHub Action.
 
 ## How to Contribute
 
@@ -24,5 +24,5 @@ Thank you for your interest in contributing to Sustainable NPM! This project aim
 ### 📜 License
 By contributing, you agree that your contributions will be licensed under the [MIT License](LICENSE).
 
-We appreciate your contributions and ideas—thank you for making NPM more sustainable! 🚀🌱
+We appreciate your contributions and ideas—thank you for making npm more sustainable! 🚀🌱
 
