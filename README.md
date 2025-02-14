@@ -78,7 +78,7 @@ Summary
     1.17 ± 0.09 times faster than npm install
 ```
 
-On average, benchmarking shows a **9-14% reduction in npm install duration** for projects with around 500 package dependencies.
+On average, benchmarking shows a **10-20% reduction in npm install duration** for projects with around 500 package dependencies.
 
 Packages were downloaded in advance before both benchmarks to avoid networking variations on timings.
 
