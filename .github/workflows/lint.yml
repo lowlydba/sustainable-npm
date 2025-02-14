@@ -1,0 +1,24 @@
+---
+name: Lint
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  packages: read
+  statuses: write # To report GitHub Actions status checks
+
+jobs:
+  super-linter:
+    runs-on: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: super-linter/super-linter/slim@v7
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_MARKDOWN_PRETTIER: false
+          VALIDATE_YAML_PRETTIER: false
+          VALIDATE_JSON_PRETTIER: false
