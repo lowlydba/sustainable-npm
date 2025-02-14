@@ -88,7 +88,3 @@ Packages were downloaded in advance before both benchmarks to avoid networking v
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request if you have suggestions, improvements, or encounter any issues.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
