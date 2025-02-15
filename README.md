@@ -1,8 +1,7 @@
-# Sustainable npm
+# Sustainable npm<!-- omit in toc -->
 
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/lowlydba/sustainable-npm/benchmark.yml?logoColor=blue&label=benchmark&color=blue)
 [![Test action](https://github.com/lowlydba/sustainable-npm/actions/workflows/test.yml/badge.svg)](https://github.com/lowlydba/sustainable-npm/actions/workflows/test.yml)
-
 
 Sustainable npm is a lightweight GitHub Action that globally sets eco-friendly npm configurations to optimize your workflows. By disabling certain npm features (like audit and update notifications), this action helps speed up installations and reduce the carbon footprint of your CI processes.
 
@@ -12,13 +11,22 @@ Sustainable npm is a lightweight GitHub Action that globally sets eco-friendly n
 * 🌎 reduces carbon emissions
 * :octocat: pairs seamlessly with [`actions/setup-node`](https://github.com/actions/setup-node) and all active Node LTS versions
 
+* [Philosophy](#philosophy)
+* [Usage](#usage)
+  * [Basic Usage](#basic-usage)
+  * [Customizing Inputs](#customizing-inputs)
+  * [Debug Logging](#debug-logging)
+* [Inputs](#inputs)
+* [Performance Benchmarks](#performance-benchmarks)
+* [Contributing](#contributing)
+
 ## Philosophy
 
 Every millisecond of compute time counts—not only for performance but also for sustainability. Sustainable npm is designed with the environment in mind. By streamlining npm’s behavior, we aim to reduce unnecessary energy usage and carbon emissions, all while making your development pipeline leaner and faster.
 
 ## Usage
 
-### Basic Usage (with Defaults)
+### Basic Usage
 
 After setting up Node with `actions/setup-node`, simply add this step to configure your npm settings with the eco-friendly defaults:
 
@@ -28,15 +36,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
-      - uses: lowlysre/sustainable-npm@v1
+      - uses: lowlydba/sustainable-npm@v1
 ```
 
 ### Customizing Inputs
 
-If you need to override the defaults, you can provide your own values. For example:
+If you need to override the defaults:
 
 ```yaml
-- uses: lowlysre/sustainable-npm@v1
+- uses: lowlydba/sustainable-npm@v1
   with:
     audit: 'true'
     fund: 'false'
@@ -44,6 +52,20 @@ If you need to override the defaults, you can provide your own values. For examp
     save: 'false'
     update-notifier: 'false'
     loglevel: 'warn'
+```
+
+### Debug Logging
+
+This workflow skips the `lowlydba/sustainable-npm` action when [debug logging][debug-logging] is enabled (`ACTIONS_STEP_DEBUG == 'true'`), ensuring full output for troubleshooting.
+
+```yaml
+jobs:
+  test:
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+      - uses: lowlydba/sustainable-npm@v1
+        if: ${{ env.ACTIONS_STEP_DEBUG != 'true' }}
 ```
 
 ## Inputs
@@ -88,3 +110,5 @@ Packages were downloaded in advance before both benchmarks to avoid networking v
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request if you have suggestions, improvements, or encounter any issues.
+
+[debug-logging]: https://docs.github.com/en/actions/managing-workflow-runs-and-deployments/managing-workflow-runs/re-running-workflows-and-jobs#about-re-running-workflows-and-jobs
