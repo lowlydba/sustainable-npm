@@ -20,6 +20,7 @@ sustainable-npm is a lightweight GitHub Action that globally sets eco-friendly n
   - [Customizing Inputs](#customizing-inputs)
   - [Debug Logging](#debug-logging)
 - [Inputs](#inputs)
+- [Environmental Impact](#environmental-impact)
 - [Performance Benchmarks](#performance-benchmarks)
 - [Contributing](#contributing)
 - [Show Your Support](#show-your-support)
@@ -83,6 +84,12 @@ jobs:
 | `update-notifier` | Configures whether npm checks for updates to itself after executing commands. Disabling this reduces unnecessary network requests and delays.             | `'true'` or `'false'`                                 | `'false'` |
 | `prefer-offline` | Configures whether npm checks for staleness in cached data. Missing data will still be fetched online. Disabling this can reduce unnecessary network requests. | `'true'` or `'false'`                                 | `'true'` |
 | `loglevel`        | Sets the logging level for npm. Options include: `silent`, `error`, `warn`, `http`, `info`, `verbose`, and `silly`.                                           | `silent`, `error`, `warn`, `http`, `info`, `verbose`, `silly` | `'error'` |
+
+## Environmental Impact
+
+By using sustainable-npm, you're optimizing one of the most repeated actions in development: `npm install`. With frequent usage, small improvements in time and energy efficiency can lead to significant environmental benefits. Reducing unnecessary operations means lower energy consumption and a smaller carbon footprint.
+
+Every optimization contributes to a more sustainable development process.
 
 ## Performance Benchmarks
 
