@@ -8,6 +8,22 @@ on:
 permissions: read-all
 
 jobs:
+  full-install:
+    runs-on: [ubuntu-latest]
+    strategy:
+      matrix:
+        sustainable-npm: [true, false]
+        package-size: ['medium']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - uses: ./
+        if: ${{ matrix.sustainable-npm }}
+      - name: Install dependencies
+        run: |
+          cd test/${{ matrix.package-size }}-package
+          npm install
+
   benchmark:
     runs-on: ${{ matrix.os }}
     strategy:
@@ -15,24 +31,17 @@ jobs:
         os: [ubuntu-latest]
         package-size: ['medium']
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
       - name: Install hyperfine
         run: |
           sudo apt-get update
           sudo apt-get install -y hyperfine
-
       - name: Cache dependencies
         run: |
           cd test/${{ matrix.package-size }}-package
           npm install
-
       - name: Run baseline benchmarks
         run: |
-          echo "Benchmarking baseline npm config commands"
           cd test/${{ matrix.package-size }}-package
           hyperfine --warmup 2 --runs 10 "npm install" "npm install --audit=false --fund=false --loglevel=error --prefer-offline=true --update-notifier=false --progress=false"
