@@ -2,7 +2,7 @@
 
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/lowlydba/sustainable-npm/benchmark.yml?logoColor=blue&label=benchmark&color=blue)
 [![Test action](https://github.com/lowlydba/sustainable-npm/actions/workflows/test.yml/badge.svg)](https://github.com/lowlydba/sustainable-npm/actions/workflows/test.yml)
-![sustainable-npm](https://img.shields.io/badge/Sustainable%20npm-🌱-blue?style=flat)
+![sustainable-npm](https://img.shields.io/badge/sustainable--npm-🌱-blue?style=flat)
 
 sustainable-npm is a lightweight GitHub Action that globally sets eco-friendly npm configurations to optimize your workflows. By disabling certain npm features (like audit and update notifications), this action helps speed up installations and reduce the carbon footprint of your CI processes.
 
@@ -126,16 +126,16 @@ Contributions are welcome! Please open an issue or submit a pull request if you 
 
 If you're using sustainable-npm, you can add this badge to your repository to spread the word!
 
-![sustainable-npm](https://img.shields.io/badge/Sustainable%20npm-🌱-blue?style=flat)
+![sustainable-npm](https://img.shields.io/badge/sustainable--npm-🌱-blue?style=flat)
 
 ```md
-![sustainable-npm](https://img.shields.io/badge/Sustainable%20npm-🌱-blue?style=flat)
+![sustainable-npm](https://img.shields.io/badge/sustainable--npm-🌱-blue?style=flat)
 ```
 
 Want to link back to this project?
 
 ```md
-[![sustainable-npm](https://img.shields.io/badge/Sustainable%20npm-🌱-blue?style=flat)](https://github.com/lowlysre/sustainable-npm)
+[![sustainable-npm](https://img.shields.io/badge/sustainable--npm-🌱-blue?style=flat)](https://github.com/lowlysre/sustainable-npm)
 ```
 
 This helps promote sustainability in open source by encouraging more developers to reduce unnecessary npm operations. 🌍♻️
