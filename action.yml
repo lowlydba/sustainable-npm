@@ -1,4 +1,4 @@
-name: 'Sustainable npm'
+name: 'sustainable-npm'
 description: 'Globally sets npm configurations to optimize speed and reduce CO₂ emissions.'
 author: 'John McCall'
 branding:
