@@ -8,6 +8,22 @@ on:
 permissions: read-all
 
 jobs:
+  full-install:
+    runs-on: [ubuntu-latest]
+    strategy:
+      matrix:
+        sustainable-npm: [true, false]
+        package-size: ['medium']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - uses: ./
+        if: ${{ matrix.sustainable-npm }}
+      - name: Install dependencies
+        run: |
+          cd test/${{ matrix.package-size }}-package
+          npm install
+
   benchmark:
     runs-on: ${{ matrix.os }}
     strategy:
