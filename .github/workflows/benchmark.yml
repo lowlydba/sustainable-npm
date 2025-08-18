@@ -15,7 +15,7 @@ jobs:
         sustainable-npm: [true, false]
         package-size: ['medium']
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: actions/setup-node@v4
       - uses: ./
         if: ${{ matrix.sustainable-npm }}
@@ -31,7 +31,7 @@ jobs:
         os: [ubuntu-latest]
         package-size: ['medium']
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: actions/setup-node@v4
       - name: Install hyperfine
         run: |
