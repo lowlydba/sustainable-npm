@@ -4,6 +4,8 @@
 [![Test action](https://github.com/lowlydba/sustainable-npm/actions/workflows/test.yml/badge.svg)](https://github.com/lowlydba/sustainable-npm/actions/workflows/test.yml)
 ![sustainable-npm](https://img.shields.io/badge/sustainable--npm-🌱-blue?style=flat)
 
+<img width="800" height="422" alt="sustainable-npm-og" src="https://github.com/user-attachments/assets/e963c345-e370-47ce-b970-1b812e369c64" />
+
 sustainable-npm is a lightweight GitHub Action that globally sets eco-friendly npm configurations to optimize your workflows. By disabling certain npm features (like audit and update notifications), this action helps speed up installations and reduce the carbon footprint of your CI processes.
 
 * 🔒 dependency-free
