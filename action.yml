@@ -66,6 +66,7 @@ runs:
         npm config set loglevel ${{ inputs.loglevel }}
 
     - name: Print npm configs
+      if: runner.debug
       shell: bash
       run: |
         # Print npm configs

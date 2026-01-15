@@ -22,6 +22,7 @@ sustainable-npm is a lightweight GitHub Action that globally sets eco-friendly n
   - [Customizing Inputs](#customizing-inputs)
   - [Debug Logging](#debug-logging)
 - [Inputs](#inputs)
+- [Breaking Changes](#breaking-changes)
 - [Environmental Impact](#environmental-impact)
 - [Performance Benchmarks](#performance-benchmarks)
 - [Contributing](#contributing)
@@ -63,7 +64,7 @@ If you need to override the defaults:
 
 ### Debug Logging
 
-This workflow skips the `lowlydba/sustainable-npm` action when [debug logging][debug-logging] is enabled (`ACTIONS_STEP_DEBUG == 'true'`), ensuring full output for troubleshooting.
+The npm configuration output is only printed when [debug logging][debug-logging] is enabled (`RUNNER_DEBUG == 'true'`). This helps reduce unnecessary log noise in standard CI runs while preserving detailed output for troubleshooting.
 
 ```yaml
 jobs:
@@ -72,7 +73,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
       - uses: lowlydba/sustainable-npm@v1
-        if: ${{ env.ACTIONS_STEP_DEBUG != 'true' }}
 ```
 
 ## Inputs
@@ -86,6 +86,12 @@ jobs:
 | `update-notifier` | Configures whether npm checks for updates to itself after executing commands. Disabling this reduces unnecessary network requests and delays.             | `'true'` or `'false'`                                 | `'false'` |
 | `prefer-offline` | Configures whether npm checks for staleness in cached data. Missing data will still be fetched online. Disabling this can reduce unnecessary network requests. | `'true'` or `'false'`                                 | `'true'` |
 | `loglevel`        | Sets the logging level for npm. Options include: `silent`, `error`, `warn`, `http`, `info`, `verbose`, and `silly`.                                           | `silent`, `error`, `warn`, `http`, `info`, `verbose`, `silly` | `'error'` |
+
+## Breaking Changes
+
+### v2.0.0
+
+**npm configuration output is now debug-mode only**: The "Print npm configs" step now only executes when debug logging is enabled (`RUNNER_DEBUG == 'true'`). This aligns with the action's sustainability goals by reducing unnecessary CPU processing and log output in standard CI runs. Debug logging can be enabled by setting the `RUNNER_DEBUG` environment variable to `'true'` in your workflow or step.
 
 ## Environmental Impact
 
