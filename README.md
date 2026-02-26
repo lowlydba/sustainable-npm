@@ -18,13 +18,11 @@ sustainable-npm is a lightweight GitHub Action that globally sets eco-friendly n
 
 - [Philosophy](#philosophy)
 - [Usage](#usage)
-  - [Basic Usage](#basic-usage)
-  - [Customizing Inputs](#customizing-inputs)
-  - [Debug Logging](#debug-logging)
 - [Inputs](#inputs)
 - [Breaking Changes](#breaking-changes)
 - [Environmental Impact](#environmental-impact)
 - [Performance Benchmarks](#performance-benchmarks)
+- [Real-World Performance](#real-world-performance)
 - [Contributing](#contributing)
 - [Show Your Support](#show-your-support)
 
@@ -44,7 +42,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
-      - uses: lowlydba/sustainable-npm@v1
+      - uses: lowlydba/sustainable-npm@v2
 ```
 
 ### Customizing Inputs
@@ -52,7 +50,7 @@ jobs:
 If you need to override the defaults:
 
 ```yaml
-- uses: lowlydba/sustainable-npm@v1
+- uses: lowlydba/sustainable-npm@v2
   with:
     audit: 'true'
     fund: 'false'
@@ -72,20 +70,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
-      - uses: lowlydba/sustainable-npm@v1
+      - uses: lowlydba/sustainable-npm@v2
 ```
 
 ## Inputs
 
-| Input             | Description                                                                                                                                                 | Allowed Values                                        | Default   |
-|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|-----------|
-| `audit`           | Controls whether npm performs a security audit after installing packages. Disabling the audit can improve installation speed.                              | `'true'` or `'false'`                                 | `'false'` |
-| `fund`            | Enables or disables npm funding messages. Disabling it reduces unnecessary prompts in CI environments.                                                     | `'true'` or `'false'`                                 | `'false'` |
-| `progress`        | Determines if a progress bar is displayed during npm operations. Disabling it minimizes logging overhead.                                                    | `'true'` or `'false'`                                 | `'false'` |
-| `save`            | Controls whether npm automatically updates `package.json` with installed dependencies. Disabling this can prevent unintended file changes.                | `'true'` or `'false'`                                 | `'false'` |
-| `update-notifier` | Configures whether npm checks for updates to itself after executing commands. Disabling this reduces unnecessary network requests and delays.             | `'true'` or `'false'`                                 | `'false'` |
-| `prefer-offline` | Configures whether npm checks for staleness in cached data. Missing data will still be fetched online. Disabling this can reduce unnecessary network requests. | `'true'` or `'false'`                                 | `'true'` |
-| `loglevel`        | Sets the logging level for npm. Options include: `silent`, `error`, `warn`, `http`, `info`, `verbose`, and `silly`.                                           | `silent`, `error`, `warn`, `http`, `info`, `verbose`, `silly` | `'error'` |
+| Input             | Description                                                                                                                                                    | Allowed Values                                                | Default   |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------|-----------|
+| `audit`           | Controls whether npm performs a security audit after installing packages. Disabling the audit can improve installation speed.                                  | `'true'` or `'false'`                                         | `'false'` |
+| `fund`            | Enables or disables npm funding messages. Disabling it reduces unnecessary prompts in CI environments.                                                         | `'true'` or `'false'`                                         | `'false'` |
+| `progress`        | Determines if a progress bar is displayed during npm operations. Disabling it minimizes logging overhead.                                                      | `'true'` or `'false'`                                         | `'false'` |
+| `save`            | Controls whether npm automatically updates `package.json` with installed dependencies. Disabling this can prevent unintended file changes.                     | `'true'` or `'false'`                                         | `'false'` |
+| `update-notifier` | Configures whether npm checks for updates to itself after executing commands. Disabling this reduces unnecessary network requests and delays.                  | `'true'` or `'false'`                                         | `'false'` |
+| `prefer-offline`  | Configures whether npm checks for staleness in cached data. Missing data will still be fetched online. Enabling this can reduce unnecessary network requests.  | `'true'` or `'false'`                                         | `'true'`  |
+| `loglevel`        | Sets the logging level for npm. Options include: `silent`, `error`, `warn`, `http`, `info`, `verbose`, and `silly`.                                            | `silent`, `error`, `warn`, `http`, `info`, `verbose`, `silly` | `'error'` |
 
 ## Breaking Changes
 
@@ -119,12 +117,18 @@ Summary
     1.17 ± 0.09 times faster than npm install
 ```
 
-On average, benchmarking shows a **10-20% reduction in npm install duration** for projects with around 500 package dependencies.
+On average, benchmarking shows a floor of **10-20% reduction in npm install duration** for projects with around 500 package dependencies.
 
 Packages were downloaded in advance before both benchmarks to avoid networking variations on timings.
 
 > [!NOTE]
 > The above numbers are *illustrative*. Your actual performance gains will depend on your configuration, network conditions, operating system, and project.
+
+## Real-World Performance
+
+A list of real-world install-time and CI duration improvements reported by users:
+
+* [rvandernoort details results using EcoCI in #11](https://github.com/lowlydba/sustainable-npm/issues/11#issuecomment-3908732169)
 
 ## Contributing
 
