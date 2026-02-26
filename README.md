@@ -126,7 +126,7 @@ Packages were downloaded in advance before both benchmarks to avoid networking v
 
 ## Real-World Performance
 
-A list of actual improvements reported from users
+A list of real-world install-time and CI duration improvements reported by users:
 
 * [rvandernoort details results using EcoCI in #11](https://github.com/lowlydba/sustainable-npm/issues/11#issuecomment-3908732169)
 
