@@ -41,6 +41,13 @@ inputs:
       For streamlined output, the default is set to 'error' (default: error).
     required: false
     default: 'error'
+  ignore-scripts:
+    description: >-
+      Prevents npm from running lifecycle scripts (e.g. postinstall) defined in packages.
+      Reduces install time by skipping spawned processes, network calls, and compilations triggered by scripts.
+      Also protects against supply chain attacks via malicious install scripts (default: true).
+    required: false
+    default: 'true'
 
 runs:
   using: 'composite'
@@ -56,14 +63,23 @@ runs:
 
     - name: Set npm configs
       shell: bash
+      env:
+        INPUT_AUDIT: ${{ inputs.audit }}
+        INPUT_FUND: ${{ inputs.fund }}
+        INPUT_PROGRESS: ${{ inputs.progress }}
+        INPUT_UPDATE_NOTIFIER: ${{ inputs['update-notifier'] }}
+        INPUT_PREFER_OFFLINE: ${{ inputs['prefer-offline'] }}
+        INPUT_LOGLEVEL: ${{ inputs.loglevel }}
+        INPUT_IGNORE_SCRIPTS: ${{ inputs['ignore-scripts'] }}
       run: |
         # Set npm configs
-        npm config set audit ${{ inputs.audit }}
-        npm config set fund ${{ inputs.fund }}
-        npm config set progress ${{ inputs.progress }}
-        npm config set update-notifier ${{ inputs['update-notifier'] }}
-        npm config set prefer-offline ${{ inputs['prefer-offline'] }}
-        npm config set loglevel ${{ inputs.loglevel }}
+        npm config set audit "$INPUT_AUDIT"
+        npm config set fund "$INPUT_FUND"
+        npm config set progress "$INPUT_PROGRESS"
+        npm config set update-notifier "$INPUT_UPDATE_NOTIFIER"
+        npm config set prefer-offline "$INPUT_PREFER_OFFLINE"
+        npm config set loglevel "$INPUT_LOGLEVEL"
+        npm config set ignore-scripts "$INPUT_IGNORE_SCRIPTS"
 
     - name: Print npm configs
       if: runner.debug

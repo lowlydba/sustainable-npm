@@ -22,7 +22,7 @@ Thank you for your interest in contributing! Contributions of all kinds are welc
 ## Pull Request Guidelines
 
 - Keep changes focused — one concern per PR.
-- Update the [README](README.md) if your change affects documented behavior or inputs.
+- Update the [Readme](README.md) if your change affects documented behavior or inputs.
 - Ensure the [test workflow](https://github.com/lowlydba/sustainable-npm/actions/workflows/test.yml) passes before requesting review.
 - Follow the existing code style and YAML formatting conventions.
 

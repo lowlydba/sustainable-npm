@@ -3,7 +3,13 @@ name: Test action
 
 on:
   push:
+    branches:
+      - main
   pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 permissions: read-all
 
@@ -13,11 +19,13 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        node: [16.x, 18.x, 20.x, 22.x]
+        node: [20.x, 22.x, 24.x]
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
           node-version: ${{ matrix.node }}
 
@@ -30,6 +38,7 @@ jobs:
           update-notifier: 'false'
           prefer-offline: 'true'
           loglevel: 'error'
+          ignore-scripts: 'true'
 
       - name: Assert npm config settings
         shell: bash
@@ -40,6 +49,7 @@ jobs:
           expected_update_notifier="false"
           expected_prefer_offline="true"
           expected_loglevel="error"
+          expected_ignore_scripts="true"
 
           # Retrieve current npm config values
           actual_audit=$(npm config get audit)
@@ -48,6 +58,7 @@ jobs:
           actual_update_notifier=$(npm config get update-notifier)
           actual_prefer_offline=$(npm config get prefer-offline)
           actual_loglevel=$(npm config get loglevel)
+          actual_ignore_scripts=$(npm config get ignore-scripts)
 
           echo "Validating npm configurations:"
           echo "audit: expected $expected_audit, got $actual_audit"
@@ -56,6 +67,7 @@ jobs:
           echo "update-notifier: expected $expected_update_notifier, got $actual_update_notifier"
           echo "prefer-offline: expected $expected_prefer_offline, got $actual_prefer_offline"
           echo "loglevel: expected $expected_loglevel, got $actual_loglevel"
+          echo "ignore-scripts: expected $expected_ignore_scripts, got $actual_ignore_scripts"
 
           # Compare actual vs expected values
           if [ "$actual_audit" != "$expected_audit" ]; then echo "Mismatch in audit"; exit 1; fi
@@ -64,5 +76,6 @@ jobs:
           if [ "$actual_update_notifier" != "$expected_update_notifier" ]; then echo "Mismatch in update-notifier"; exit 1; fi
           if [ "$actual_prefer_offline" != "$expected_prefer_offline" ]; then echo "Mismatch in prefer_offline"; exit 1; fi
           if [ "$actual_loglevel" != "$expected_loglevel" ]; then echo "Mismatch in loglevel"; exit 1; fi
+          if [ "$actual_ignore_scripts" != "$expected_ignore_scripts" ]; then echo "Mismatch in ignore-scripts"; exit 1; fi
 
           echo "All npm configurations match the expected values."
