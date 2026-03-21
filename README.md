@@ -1,7 +1,8 @@
 ﻿# sustainable-npm<!-- omit in toc -->
 
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/lowlydba/sustainable-npm/benchmark.yml?logoColor=blue&label=benchmark&color=blue)
 [![Test action](https://github.com/lowlydba/sustainable-npm/actions/workflows/test.yml/badge.svg)](https://github.com/lowlydba/sustainable-npm/actions/workflows/test.yml)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/lowlydba/sustainable-npm/benchmark.yml?logo=github&label=benchmark&color=green)
+[![immutable release ruleset](https://img.shields.io/badge/immutable%20tags-active-green?logo=github)](https://github.com/lowlydba/sustainable-npm/rules/14185577)
 ![sustainable-npm](https://img.shields.io/badge/sustainable--npm-🌱-blue?style=flat)
 
 <img width="800" height="422" alt="sustainable-npm-og" src="https://github.com/user-attachments/assets/e963c345-e370-47ce-b970-1b812e369c64" />
