@@ -6,6 +6,7 @@ on:
 permissions:
   contents: read
   packages: read
+  pull-requests: write # To allow PR comments from tools that use the GITHUB_TOKEN
   statuses: write # To report GitHub Actions status checks
 
 jobs:

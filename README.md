@@ -19,6 +19,8 @@ A lightweight GitHub Action that sets sensible npm defaults to speed up installs
 - [Usage](#usage)
 - [Inputs](#inputs)
 - [Breaking Changes](#breaking-changes)
+  - [v3.0.0](#v300)
+  - [v2.0.0](#v200)
 - [Performance Benchmarks](#performance-benchmarks)
 - [Real-World Performance](#real-world-performance)
 - [Show Your Support](#show-your-support)
@@ -57,16 +59,16 @@ The npm configuration is only printed when [debug logging][debug-logging] is ena
 
 ## Inputs
 
-| Input             | Description                                                                          | Allowed Values                                                | Default   |
-|-------------------|--------------------------------------------------------------------------------------|---------------------------------------------------------------|-----------|
-| `audit`           | Run a security audit after install.                                                  | `'true'` or `'false'`                                         | `'false'` |
-| `fund`            | Show funding messages.                                                               | `'true'` or `'false'`                                         | `'false'` |
-| `progress`        | Show a progress bar during npm operations.                                           | `'true'` or `'false'`                                         | `'false'` |
-| `save`            | Automatically update `package.json` when installing packages.                        | `'true'` or `'false'`                                         | `'false'` |
-| `update-notifier` | Check for npm updates after each command.                                            | `'true'` or `'false'`                                         | `'false'` |
-| `prefer-offline`  | Use cached data without checking for staleness. Uncached packages are still fetched. | `'true'` or `'false'`                                         | `'true'`  |
-| `loglevel`        | npm log level.                                                                       | `silent`, `error`, `warn`, `http`, `info`, `verbose`, `silly` | `'error'` |
-| `ignore-scripts`  | Prevent npm from running lifecycle scripts (e.g. `postinstall`). Reduces install time and protects against supply chain attacks. | `'true'` or `'false'`                                         | `'true'`  |
+| Input             | Description                                                                                                                        | Allowed Values                                                 | Default   |
+|-------------------|------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|-----------|
+| `audit`           | Run a security audit after install.                                                                                                | `'true'` or `'false'`                                          | `'false'` |
+| `fund`            | Show funding messages.                                                                                                             | `'true'` or `'false'`                                          | `'false'` |
+| `progress`        | Show a progress bar during npm operations.                                                                                         | `'true'` or `'false'`                                          | `'false'` |
+| `save`            | Automatically update `package.json` when installing packages.                                                                      | `'true'` or `'false'`                                          | `'false'` |
+| `update-notifier` | Check for npm updates after each command.                                                                                          | `'true'` or `'false'`                                          | `'false'` |
+| `prefer-offline`  | Use cached data without checking for staleness. Uncached packages are still fetched.                                               | `'true'` or `'false'`                                          | `'true'`  |
+| `loglevel`        | npm log level.                                                                                                                     | `silent`, `error`, `warn`, `http`, `info`, `verbose`, `silly`  | `'error'` |
+| `ignore-scripts`  | Prevent npm from running lifecycle scripts (e.g. `postinstall`). Reduces install time and protects against supply chain attacks.   | `'true'` or `'false'`                                          | `'true'`  |
 
 ## Breaking Changes
 
