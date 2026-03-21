@@ -33,13 +33,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
-      - uses: lowlydba/sustainable-npm@v2
+      - uses: lowlydba/sustainable-npm@v3
 ```
 
 To override any defaults:
 
 ```yaml
-- uses: lowlydba/sustainable-npm@v2
+- uses: lowlydba/sustainable-npm@v3
   with:
     audit: 'true'
     fund: 'false'
@@ -47,6 +47,7 @@ To override any defaults:
     save: 'false'
     update-notifier: 'false'
     loglevel: 'warn'
+    ignore-scripts: 'false'
 ```
 
 The npm configuration is only printed when [debug logging][debug-logging] is enabled (`RUNNER_DEBUG == 'true'`).
@@ -62,8 +63,13 @@ The npm configuration is only printed when [debug logging][debug-logging] is ena
 | `update-notifier` | Check for npm updates after each command.                                            | `'true'` or `'false'`                                         | `'false'` |
 | `prefer-offline`  | Use cached data without checking for staleness. Uncached packages are still fetched. | `'true'` or `'false'`                                         | `'true'`  |
 | `loglevel`        | npm log level.                                                                       | `silent`, `error`, `warn`, `http`, `info`, `verbose`, `silly` | `'error'` |
+| `ignore-scripts`  | Prevent npm from running lifecycle scripts (e.g. `postinstall`). Reduces install time and protects against supply chain attacks. | `'true'` or `'false'`                                         | `'true'`  |
 
 ## Breaking Changes
+
+### v3.0.0
+
+`ignore-scripts` is now enabled by default (`true`). This prevents npm from running lifecycle scripts (e.g. `postinstall`) during installs, protecting against supply chain attacks via malicious packages. If your project relies on install scripts from trusted dependencies, set `ignore-scripts: 'false'` to restore the previous behavior.
 
 ### v2.0.0
 
