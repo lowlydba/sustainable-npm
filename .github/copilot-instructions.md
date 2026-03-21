@@ -2,7 +2,6 @@
 
 ## Pull Request Descriptions
 
-When generating a PR description, follow this structure:
 
 ### Body
 
@@ -19,6 +18,15 @@ When generating a PR description, follow this structure:
 - Do not include "no breaking changes" boilerplate when there are none — just omit the section.
 - Do not pad with filler phrases like "This PR aims to..." or "I have tested this by...".
 - Do not reference issue numbers unless they are known.
+
+## Versioning & Pinning
+
+- Semver tags (e.g. `v3.0.0`) are immutable once pushed and are never force-pushed.
+- The current major floating tag (e.g. `v3`) tracks the latest release on that major line and is mutable.
+- Previous major floating tags (e.g. `v2`) are converted to immutable once superseded by a new major.
+- These rules are enforced via [repository rulesets](https://github.com/lowlydba/sustainable-npm/rules).
+- For best security, users should [pin to a full commit SHA](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions#using-third-party-actions) rather than a tag.
+- When suggesting usage examples in PR descriptions or docs, prefer the current major tag; if the context is security-hardening, suggest SHA pinning.
 
 ## General Coding Conventions
 
