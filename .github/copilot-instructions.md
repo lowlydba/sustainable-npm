@@ -21,7 +21,7 @@
 
 ## Versioning & Pinning
 
-- Semver tags (e.g. `v3.0.0`) are immutable once pushed and are never force-pushed.
+- SemVer tags (e.g. `v3.0.0`) are immutable once pushed and are never force-pushed.
 - The current major floating tag (e.g. `v3`) tracks the latest release on that major line and is mutable.
 - Previous major floating tags (e.g. `v2`) are converted to immutable once superseded by a new major.
 - These rules are enforced via [repository rulesets](https://github.com/lowlydba/sustainable-npm/rules).

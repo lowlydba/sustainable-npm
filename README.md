@@ -55,7 +55,7 @@ To override any defaults:
 The npm configuration is only printed when [debug logging][debug-logging] is enabled (`RUNNER_DEBUG == 'true'`).
 
 > [!TIP]
-> Semver tags (e.g. `v3.0.0`) and superseded major tags (e.g. `v2`) are immutable, enforced via [repository rulesets](https://github.com/lowlydba/sustainable-npm/rules). For maximum supply chain security, [pin to a full commit SHA](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions#using-third-party-actions) rather than a tag.
+> SemVer tags (e.g. `v3.0.0`) and superseded major tags (e.g. `v2`) are immutable, enforced via [repository rulesets](https://github.com/lowlydba/sustainable-npm/rules). For maximum supply chain security, [pin to a full commit SHA](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions#using-third-party-actions) rather than a tag.
 
 ## Inputs
 
@@ -111,7 +111,7 @@ Around a **10-20% reduction in install time** on projects with ~500 dependencies
 
 ## Show Your Support
 
-Add a badge to your repo:
+Add a badge to your repository:
 
 [![sustainable-npm](https://img.shields.io/badge/sustainable--npm-🌱-blue?style=flat)](https://github.com/lowlysre/sustainable-npm)
 
