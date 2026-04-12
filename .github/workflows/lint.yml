@@ -24,16 +24,11 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
-      - name: Update README example pins
+      - name: Check action pins
         uses: suzuki-shunsuke/pinact-action@cf51507d80d4d6522a07348e3d58790290eaf0b6 # v2.0.0
         with:
-          skip_push: "true"
-          update: "true"
           verify: "true"
           min_age: "7"
-          includes: |
-            README.md
-          separator: " # "
 
       - uses: zizmorcore/zizmor-action@71321a20a9ded102f6e9ce5718a2fcec2c4f70d8 # v0.5.2
         with:

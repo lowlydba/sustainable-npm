@@ -55,7 +55,7 @@ To override any defaults:
 The npm configuration is only printed when [debug logging][debug-logging] is enabled (`RUNNER_DEBUG == 'true'`).
 
 > [!TIP]
-> SemVer tags (e.g. `v3.0.0`) and superseded major tags (e.g. `v2`) are immutable, enforced via [repository rulesets](https://github.com/lowlydba/sustainable-npm/rules). For maximum supply chain security, [pin to a full commit SHA](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions#using-third-party-actions) rather than a tag.
+> SemVer tags (e.g. `v3.0.0`) and superseded major tags (e.g. `v1`, `v2`) are immutable, enforced via [repository rulesets](https://github.com/lowlydba/sustainable-npm/rules). For maximum supply chain security, [pin to a full commit SHA](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions#using-third-party-actions) rather than a tag. After v4.0.0, only SemVer tags will be used.
 
 ## Inputs
 
