@@ -34,15 +34,15 @@ After setting up Node with `actions/setup-node`, add this step:
 jobs:
   test:
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
-      - uses: lowlydba/sustainable-npm@v3
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+      - uses: lowlydba/sustainable-npm@31d51025884f424f58f22e4e6578178bb4e79632 # v3.0.0
 ```
 
 To override any defaults:
 
 ```yaml
-- uses: lowlydba/sustainable-npm@v3
+- uses: lowlydba/sustainable-npm@31d51025884f424f58f22e4e6578178bb4e79632 # v3.0.0
   with:
     audit: 'true'
     fund: 'false'
