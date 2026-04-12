@@ -16,6 +16,7 @@ permissions:
 
 jobs:
   full-install:
+    name: Full install
     runs-on: [ubuntu-latest]
     strategy:
       matrix:
@@ -29,11 +30,14 @@ jobs:
       - uses: ./
         if: ${{ matrix.sustainable-npm }}
       - name: Install dependencies
+        env:
+          PACKAGE_SIZE: ${{ matrix.package-size }}
         run: |
-          cd test/${{ matrix.package-size }}-package
+          cd test/$PACKAGE_SIZE-package
           npm install
 
   benchmark:
+    name: Benchmark
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -49,10 +53,14 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y hyperfine
       - name: Cache dependencies
+        env:
+          PACKAGE_SIZE: ${{ matrix.package-size }}
         run: |
-          cd test/${{ matrix.package-size }}-package
+          cd test/$PACKAGE_SIZE-package
           npm install
       - name: Run baseline benchmarks
+        env:
+          PACKAGE_SIZE: ${{ matrix.package-size }}
         run: |
-          cd test/${{ matrix.package-size }}-package
+          cd test/$PACKAGE_SIZE-package
           hyperfine --warmup 2 --runs 10 "npm install" "npm install --audit=false --fund=false --loglevel=error --prefer-offline=true --update-notifier=false --progress=false"
