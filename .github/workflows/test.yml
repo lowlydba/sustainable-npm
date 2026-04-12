@@ -82,3 +82,13 @@ jobs:
           if [ "$actual_ignore_scripts" != "$expected_ignore_scripts" ]; then echo "Mismatch in ignore-scripts"; exit 1; fi
 
           echo "All npm configurations match the expected values."
+
+  are-we-good:
+    name: Rollup
+    runs-on: ubuntu-latest
+    needs: [test]
+    if: always()
+    steps:
+      - uses: lowlydba/are-we-good@7efad05442f92a1203940ca8b79dd4fb930e75d4 # v1.0.2
+        with:
+          jobs: ${{ toJSON(needs) }}
