@@ -13,7 +13,7 @@ jobs:
   super-linter:
     name: Lint
     permissions:
-      contents: read
+      contents: write # To allow updates from pinact
       packages: read # Required for package listing
       pull-requests: write # To allow PR comments from tools that use the GITHUB_TOKEN
       statuses: write # To report GitHub Actions status checks
