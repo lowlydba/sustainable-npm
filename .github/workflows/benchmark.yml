@@ -33,7 +33,7 @@ jobs:
         env:
           PACKAGE_SIZE: ${{ matrix.package-size }}
         run: |
-          cd test/$PACKAGE_SIZE-package
+          cd "test/$PACKAGE_SIZE-package"
           npm install
 
   benchmark:
@@ -56,11 +56,11 @@ jobs:
         env:
           PACKAGE_SIZE: ${{ matrix.package-size }}
         run: |
-          cd test/$PACKAGE_SIZE-package
+          cd "test/$PACKAGE_SIZE-package"
           npm install
       - name: Run baseline benchmarks
         env:
           PACKAGE_SIZE: ${{ matrix.package-size }}
         run: |
-          cd test/$PACKAGE_SIZE-package
+          cd "test/$PACKAGE_SIZE-package"
           hyperfine --warmup 2 --runs 10 "npm install" "npm install --audit=false --fund=false --loglevel=error --prefer-offline=true --update-notifier=false --progress=false"

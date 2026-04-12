@@ -24,13 +24,6 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
-      - uses: super-linter/super-linter/slim@9e863354e3ff62e0727d37183162c4a88873df41 #v8.6.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          VALIDATE_MARKDOWN_PRETTIER: false
-          VALIDATE_YAML_PRETTIER: false
-          VALIDATE_JSON_PRETTIER: false
-
       - name: Update README example pins
         uses: suzuki-shunsuke/pinact-action@cf51507d80d4d6522a07348e3d58790290eaf0b6 # v2.0.0
         with:
