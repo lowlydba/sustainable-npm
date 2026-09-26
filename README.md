@@ -20,6 +20,7 @@ A lightweight GitHub Action that sets sensible npm defaults to speed up installs
 - [Usage](#usage)
 - [Inputs](#inputs)
 - [Breaking Changes](#breaking-changes)
+  - [v4.0.0](#v400)
   - [v3.0.0](#v300)
   - [v2.0.0](#v200)
 - [Performance Benchmarks](#performance-benchmarks)
@@ -54,9 +55,6 @@ To override any defaults:
 
 The npm configuration is only printed when [debug logging][debug-logging] is enabled (`RUNNER_DEBUG == 'true'`).
 
-> [!TIP]
-> SemVer tags (e.g. `v3.0.0`) and superseded major tags (e.g. `v1`, `v2`) are immutable, enforced via [repository rulesets](https://github.com/lowlydba/sustainable-npm/rules). For maximum supply chain security, [pin to a full commit SHA](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions#using-third-party-actions) rather than a tag. After v4.0.0, only SemVer tags will be used.
-
 ## Inputs
 
 | Input             | Description                                                                                                                        | Allowed Values                                                 | Default   |
@@ -70,6 +68,10 @@ The npm configuration is only printed when [debug logging][debug-logging] is ena
 | `ignore-scripts`  | Prevent npm from running lifecycle scripts (e.g. `postinstall`). Reduces install time and protects against supply chain attacks.   | `'true'` or `'false'`                                          | `'true'`  |
 
 ## Breaking Changes
+
+### v4.0.0
+
+Migration to immutable, semver tags only. There will be no moving `v4` tag, and `v3` is now fully immutable.
 
 ### v3.0.0
 
