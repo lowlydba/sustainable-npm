@@ -33,7 +33,7 @@ jobs:
           node-version: ${{ matrix.node }}
 
       - name: Run action
-        uses: ./
+        uses: $/
         with:
           audit: 'false'
           fund: 'false'
